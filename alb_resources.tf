@@ -32,9 +32,9 @@ resource "aws_lb_target_group" "target-group" {
 
 resource "aws_lb_target_group_attachment" "test" {
   target_group_arn = aws_lb_target_group.target-group.arn
-  target_id        = aws_instance.rds_test_2.id
+  target_id        = aws_instance.pvt1.id
   port             = 8080
-  depends_on = [ aws_instance.rds_test_2 ]
+  depends_on = [ aws_instance.pvt1 ]
 }
 
 resource "aws_lb_listener" "https-listener" {
@@ -42,7 +42,7 @@ resource "aws_lb_listener" "https-listener" {
   port              = "443"
   protocol          = "HTTPS"
 #   ssl_policy        = "ELBSecurityPolicy-2016-08"
-#   certificate_arn   = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"
+  certificate_arn   = "arn:aws:acm:us-west-1:194722397683:certificate/4e9c12e0-8d94-45fb-85a5-18c63c38a30a"
 
   default_action {
     type             = "forward"
