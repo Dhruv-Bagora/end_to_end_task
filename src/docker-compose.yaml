@@ -1,8 +1,9 @@
-version: '3.8'
-
+version: '2.11'
 services:
   web:
-    image: your-dockerhub-username/your-image:latest
+    image: dhruvbagora2003/jenkins-react-app-image
     ports:
       - "80:80"
-   
+    environment:
+      - NODE_ENV=production
+    restart: always
