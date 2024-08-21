@@ -3,7 +3,7 @@ services:
   web:
     image: dhruvbagora2003/jenkins-react-app-image
     ports:
-      - "80:80"
+      - "3000:80"
     environment:
       - NODE_ENV=production
     restart: always
