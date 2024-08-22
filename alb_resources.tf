@@ -22,7 +22,7 @@ resource "aws_lb_listener" "lb_listner" {
     }
   }
 }
-
+ 
 resource "aws_lb_target_group" "target-group" {
   name     = "jenkins-task2-target"
   port     = 8080
